@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scoop Demo — Your AI Paparazzi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Desktop floating dogs -->
+  <div class="floaters" aria-hidden="true">
+    <img class="floater f1" src="assets/dog-lime.svg" alt="" />
+    <img class="floater f2" src="assets/dog-purple.svg" alt="" />
+    <img class="floater f3" src="assets/dog-pink.svg" alt="" />
+    <img class="floater f4" src="assets/dog-blue.svg" alt="" />
+    <img class="floater f5" src="assets/dog-lime.svg" alt="" />
+    <img class="floater f6" src="assets/dog-pink.svg" alt="" />
+  </div>
+
+  <header class="hero">
+    <h1 class="hero-title">Your AI Paparazzi</h1>
+    <p class="hero-sub">Get the scoop on what your friends never posted</p>
+  </header>
+
+  <!-- Phone frame -->
+  <main class="phone-wrap">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <!-- Status bar -->
+        <div class="status-bar">
+          <span class="status-time">9:41</span>
+          <div class="status-icons">
+            <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="0.5"/><rect x="4.5" y="5" width="3" height="7" rx="0.5"/><rect x="9" y="2" width="3" height="10" rx="0.5"/><rect x="13.5" y="0" width="3" height="12" rx="0.5"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 3.5c1.8 0 3.4.7 4.6 1.8l1.2-1.2A8.1 8.1 0 0 0 8 1.5 8.1 8.1 0 0 0 2.2 4.1l1.2 1.2A6.5 6.5 0 0 1 8 3.5zm0 3c1 0 1.9.4 2.6 1l1.2-1.2A5.1 5.1 0 0 0 8 5a5.1 5.1 0 0 0-3.8 1.3L5.4 7.5A3.5 3.5 0 0 1 8 6.5zm0 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="currentColor"><rect x="0" y="1" width="21" height="10" rx="2" stroke="currentColor" stroke-width="1" fill="none"/><rect x="1.5" y="2.5" width="15" height="7" rx="1" fill="currentColor"/><rect x="22" y="3.5" width="2" height="5" rx="0.5" fill="currentColor" opacity="0.4"/></svg>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <nav class="nav">
+          <button class="nav-back" aria-label="Back">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <h2 class="nav-title">Scoop Demo</h2>
+          <img class="nav-avatar" src="assets/avatar.jpg" alt="You" width="32" height="32" />
+        </nav>
+
+        <!-- Feed content -->
+        <div class="feed" id="feed">
+          <!-- Scoopy mascot -->
+          <button class="scoopy-btn" id="scoopyBtn" aria-label="Tap Scoopy">
+            <img class="scoopy-img" src="assets/scoopy.svg" alt="Scoopy" />
+            <div class="speech-bubble" id="speechBubble" hidden>
+              <p>Found 2 new scoops from this night! 🕵️‍♂️</p>
+            </div>
+          </button>
+
+          <!-- Caption -->
+          <button class="caption" id="captionBtn" aria-expanded="false">
+            <span class="caption-meta">12m ago · thought it was just a casual pizza night</span>
+            <svg class="caption-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="caption-expand" id="captionExpand" hidden>
+            <p>Scoopy sniffed through the album and caught more than pizza. Someone slipped out early… and someone else noticed. Tap the spots to uncover what never made the story.</p>
+          </div>
+
+          <!-- Photo stage -->
+          <div class="photo-stage" id="photoStage">
+            <div class="photo-main" id="photoMain">
+              <img src="assets/pizza-night.jpg" alt="Casual pizza night with friends" class="feed-photo" />
+              <!-- Hotspots -->
+              <button class="hotspot hs1" data-spot="1" aria-label="what's wrong?">
+                <span class="hotspot-ring"></span>
+                <span class="hotspot-label">what's wrong?</span>
+              </button>
+              <button class="hotspot hs2" data-spot="2" aria-label="who's that?">
+                <span class="hotspot-ring"></span>
+                <span class="hotspot-label">who's that?</span>
+              </button>
+            </div>
+
+            <!-- Spot reveal overlay -->
+            <div class="spot-reveal" id="spotReveal" hidden>
+              <button class="spot-close" id="spotClose" aria-label="Close scoop">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </button>
+              <img id="spotImage" src="assets/couple-walk.jpg" alt="Discovered scoop" class="spot-photo" />
+              <div class="spot-caption" id="spotCaption">
+                <span class="scoop-badge">THE SCOOP</span>
+                <p id="spotText"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="actions">
+            <button class="like-btn" id="likeBtn" aria-label="Like" aria-pressed="false">
+              <svg class="heart-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              <span class="like-count" id="likeCount">128</span>
+            </button>
+            <p class="found-in">Found in Lisa’s photos</p>
+          </div>
+        </div>
+
+        <!-- Home indicator -->
+        <div class="home-indicator"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="demo-footer">
+    <p>Interactive product demo · Original assets · Not affiliated with Scoopic</p>
+  </footer>
+
+  <canvas id="heartCanvas" class="heart-canvas" aria-hidden="true"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
